@@ -7,7 +7,7 @@ public class Simulation implements Runnable{
 
     public Simulation() {
         panel = new Panel();
-        Window window = new Window(panel);
+        new Window(panel);
         panel.requestFocus();
         startGameLoop();
     }
