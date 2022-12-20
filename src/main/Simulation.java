@@ -9,10 +9,10 @@ public class Simulation implements Runnable{
         panel = new Panel();
         new Window(panel);
         panel.requestFocus();
-        startGameLoop();
+        startLoop();
     }
 
-    private void startGameLoop() {
+    private void startLoop() {
         Thread thread = new Thread(this);
         thread.start();
     }

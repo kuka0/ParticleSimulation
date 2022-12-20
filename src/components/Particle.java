@@ -3,8 +3,9 @@ package components;
 import java.awt.*;
 
 public class Particle {
-    int x, y, w, h;
-    int xVector, yVector;
+    double x, y;
+    int w, h;
+    double xVector, yVector;
 
     public Particle(int x, int y, int xVector, int yVector) {
         this.x = x;
@@ -25,7 +26,26 @@ public class Particle {
      * -----------------------------------------------------------------------------------------------------------------
      * TODO: Change directional Vector based on Cursor Location. Particles should be attracted toward cursor.
      */
+
     public void update() {
+
+        double xVectorCopy = this.xVector;
+        double yVectorCopy = this.yVector;
+
+        if (true) {
+
+            double xVectorLong = Variables.xMouse - this.x;
+            double yVectorLong = Variables.yMouse - this.y;
+            double calcValue = Math.pow(xVectorLong, 2) * Math.pow(yVectorLong, 2);
+            double vectorLength = Math.sqrt(calcValue);
+
+            xVector = (xVectorLong / vectorLength);
+            yVector = (yVectorLong / vectorLength);
+        } else {
+            xVector = xVectorCopy;
+            yVector = yVectorCopy;
+        }
+
         this.x += xVector;
         this.y += yVector;
 
@@ -42,22 +62,24 @@ public class Particle {
      * draw
      * -----------------------------------------------------------------------------------------------------------------
      * Fills Particle Rectangles based on Location and Size.
+     *
      * @param g Graphics object used to draw on JPanel
-     * -----------------------------------------------------------------------------------------------------------------
+     *          -----------------------------------------------------------------------------------------------------------------
      */
     public void draw(Graphics g) {
-        g.fillRect(x, y, w, h);
+        g.fillRect((int) x,(int) y, w, h);
     }
 
     /**
      * spawn
      * -----------------------------------------------------------------------------------------------------------------
      * Spawns a single Particle with assigned Location and Direction values.
-     * @param x x- Location Coordinate
-     * @param y y- Location Coordinate
+     *
+     * @param x       x- Location Coordinate
+     * @param y       y- Location Coordinate
      * @param xVector x- Component of Directional Vector
      * @param yVector y- Component of Directional Vector
-     * -----------------------------------------------------------------------------------------------------------------
+     *                -----------------------------------------------------------------------------------------------------------------
      */
     public static void spawn(int x, int y, int xVector, int yVector) {
         Variables.particles.add(new Particle(x, y, xVector, yVector));

@@ -9,6 +9,7 @@ public class Variables {
     public static int FPS_SET = 120;
     public static int PARTICLE_COUNT =50;
     public static ArrayList<Particle> particles = new ArrayList<>();
+    public static int xMouse = 200, yMouse = 200;
 
     /**
      * randomDirection
