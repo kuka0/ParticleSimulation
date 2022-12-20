@@ -18,11 +18,12 @@ public class Simulation implements Runnable{
     }
 
     @Override
+    @SuppressWarnings("InfiniteLoopStatement")
     public void run() {
 
         double timePerFrame = 1000000000.0 / Variables.FPS_SET;
         long lastFrame = System.nanoTime();
-        long now = System.nanoTime();
+        long now;
         int frames = 0;
         long lastCheck = System.currentTimeMillis();
 
