@@ -41,9 +41,11 @@ public class Particle {
 
             xVector = (xVectorLong / vectorLength) * 5;
             yVector = (yVectorLong / vectorLength) * 5;
+
+
         } else {
-            xVector = xVectorCopy;
-            yVector = yVectorCopy;
+            xVector = xVectorCopy * 0.99;
+            yVector = yVectorCopy * 0.99;
         }
 
         this.x += xVector;
