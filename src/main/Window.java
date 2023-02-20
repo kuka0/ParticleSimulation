@@ -14,6 +14,7 @@ public class Window {
         jFrame.add(panel);
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
+        jFrame.setResizable(false);
 
     }
 }

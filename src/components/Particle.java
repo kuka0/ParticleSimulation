@@ -56,6 +56,7 @@ public class Particle {
         if ((y + h) > Variables.VIEW_HEIGHT || y < 5) {
             yVector *= -1;
         }
+
     }
 
     /**
