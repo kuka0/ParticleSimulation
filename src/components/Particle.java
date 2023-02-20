@@ -7,7 +7,7 @@ public class Particle {
     int w, h;
     double xVector, yVector;
 
-    public Particle(int x, int y, int xVector, int yVector) {
+    public Particle(double x, double y, double xVector, double yVector) {
         this.x = x;
         this.y = y;
         this.xVector = xVector;
@@ -24,7 +24,7 @@ public class Particle {
      * Changes the directional Vector based on x- and y- Location:
      * -if the Particle is close to a window edge
      * -----------------------------------------------------------------------------------------------------------------
-     * TODO: Change directional Vector based on Cursor Location. Particles should be attracted toward cursor.
+     * Change directional Vector based on Cursor Location. Particles should be attracted toward cursor.
      */
 
     public void update() {
@@ -32,15 +32,15 @@ public class Particle {
         double xVectorCopy = this.xVector;
         double yVectorCopy = this.yVector;
 
-        if (true) {
+        if (Variables.mouseEntered) {
 
             double xVectorLong = Variables.xMouse - this.x;
             double yVectorLong = Variables.yMouse - this.y;
             double calcValue = Math.pow(xVectorLong, 2) * Math.pow(yVectorLong, 2);
             double vectorLength = Math.sqrt(calcValue);
 
-            xVector = (xVectorLong / vectorLength);
-            yVector = (yVectorLong / vectorLength);
+            xVector = (xVectorLong / vectorLength) * 5;
+            yVector = (yVectorLong / vectorLength) * 5;
         } else {
             xVector = xVectorCopy;
             yVector = yVectorCopy;
@@ -81,7 +81,7 @@ public class Particle {
      * @param yVector y- Component of Directional Vector
      *                -----------------------------------------------------------------------------------------------------------------
      */
-    public static void spawn(int x, int y, int xVector, int yVector) {
+    public static void spawn(double x, double y, double xVector, double yVector) {
         Variables.particles.add(new Particle(x, y, xVector, yVector));
     }
 }

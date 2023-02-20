@@ -7,9 +7,23 @@ public class Variables {
     public static Random random = new Random();
     public static int VIEW_WIDTH = 400, VIEW_HEIGHT = 400;
     public static int FPS_SET = 120;
-    public static int PARTICLE_COUNT =50;
+    public static int PARTICLE_COUNT = 100;
     public static ArrayList<Particle> particles = new ArrayList<>();
-    public static int xMouse = 200, yMouse = 200;
+    public static int xMouse, yMouse;
+    public static boolean mouseEntered = false;
+
+    public static void setMousePosition(int x, int y) {
+        xMouse = x;
+        yMouse = y;
+    }
+
+    public static void mouseEntered() {
+        mouseEntered = true;
+    }
+
+    public static void mouseExited() {
+        mouseEntered = false;
+    }
 
     /**
      * randomDirection
